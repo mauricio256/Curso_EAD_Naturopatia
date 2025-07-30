@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/aula.css" />
+  <title>Aula - Curso Online</title>
+
+</head>
+<body>
+
+  <button class="btn-toggle-sidebar" onclick="toggleSidebar()">Aulas</button>
+
+  <div class="sidebar" id="sidebar">
+    <h2>Curso: Naturopatia Clínica</h2>
+
+    <div class="progresso">
+      <div class="progresso-barra" id="progresso-barra">0%</div>
+    </div>
+
+    <label class="miniatura" data-video="https://www.youtube.com/embed/v-tfI9PfW0I" data-aula="1" data-titulo="Aula 1 - Introdução">
+      <input type="checkbox" onclick="marcarAssistida(this, 'https://www.youtube.com/embed/v-tfI9PfW0I', 1, 'Aula 1 - Introdução')" />
+      Aula 1 - Introdução
+    </label>
+    <label class="miniatura" data-video="https://www.youtube.com/embed/DhY7fTnLac8" data-aula="2" data-titulo="Aula 2 - Fundamentos">
+      <input type="checkbox" onclick="marcarAssistida(this, 'https://www.youtube.com/embed/DhY7fTnLac8', 2, 'Aula 2 - Fundamentos')" />
+      Aula 2 - Fundamentos
+    </label>
+    <label class="miniatura" data-video="https://www.youtube.com/embed/v-tfI9PfW0I" data-aula="3" data-titulo="Aula 3 - Aplicações">
+      <input type="checkbox" onclick="marcarAssistida(this, 'https://www.youtube.com/embed/v-tfI9PfW0I', 3, 'Aula 3 - Aplicações')" />
+      Aula 3 - Aplicações
+    </label>
+
+    <button id="btnAvaliacao" class="botao-avaliacao">Fazer Avaliação</button>
+  </div>
+
+  <div class="container">
+    <div class="video-section">
+      <div class="video-player">
+        <iframe id="videoPrincipal" src="https://www.youtube.com/embed/v-tfI9PfW0I" allowfullscreen></iframe>
+      </div>
+      <div class="titulo-aula" id="tituloAula">Aula 1 - Introdução</div>
+
+      <div class="comentarios">
+        <h4>Comentários</h4>
+        <div class="lista-comentarios" id="listaComentarios"></div>
+        <div class="novo-comentario">
+          <input type="text" id="inputComentario" placeholder="Escreva seu comentário..." />
+          <button onclick="adicionarComentario()">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/aula.js"></script>
+</body>
+</html>

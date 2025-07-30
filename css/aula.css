@@ -1,0 +1,193 @@
+* {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+        url('https://img.freepik.com/fotos-premium/fundo-natural-suave-com-folhas-verdes_882954-2392.jpg?w=1600');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      min-height: 100vh;
+      justify-content: center;
+      padding-top: 6rem;
+    }
+
+    .video-section {
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      background: #ffffffee;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 100, 0, 0.1);
+    }
+
+    .video-player {
+      width: 100%;
+      height: 60vh;
+      max-height: 450px;
+      background-color: black;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .video-player iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .titulo-aula {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #2d572c;
+      text-align: center;
+    }
+
+    .comentarios {
+      margin-top: 1rem;
+    }
+
+    .lista-comentarios {
+      max-height: 200px;
+      overflow-y: auto;
+      background: #eee;
+      padding: 0.75rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+
+    .comentario-item {
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .novo-comentario {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .novo-comentario input {
+      flex: 1;
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .novo-comentario button {
+      padding: 0.5rem 1rem;
+      background-color:#2e7d32;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 320px;
+      height: 100vh;
+      background: #ffffff;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
+      padding: 1rem;
+      overflow-y: auto;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar.aberta {
+      right: 0;
+    }
+
+    .btn-toggle-sidebar {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+      z-index: 1100;
+      background-color:#2e7d32;
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .progresso {
+      height: 20px;
+      background: #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .progresso-barra {
+      height: 100%;
+      background-color: #2e7d32;
+      color: white;
+      text-align: center;
+      line-height: 20px;
+      transition: width 0.3s ease;
+      width: 0%;
+    }
+
+    .miniatura {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      background: #f1f1f1;
+      border-radius: 6px;
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .botao-avaliacao {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      width: 100%;
+      font-size: 1rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      color: white;
+      background-color: gray;
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .botao-avaliacao.ativo {
+      background-color: #2e7d32;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        padding-top: 5rem;
+      }
+
+      .video-player {
+        height: 60vh;
+      }
+    }

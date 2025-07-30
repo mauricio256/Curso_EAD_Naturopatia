@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="css/dashboard.css" />
+<title>Dashboard do Aluno</title>
+</head>
+<body>
+<div class="container">
+  <nav class="sidebar" id="sidebar">
+    <img src="/img/estudante.png" width="50px"></img>
+    <a href="#">Início</a>
+    <a href="#">Meus Cursos</a>
+    <a href="#">Meus Certificados</a>
+    <a href="#">Notas</a>
+    <a href="#">Cursos</a>
+    <a href="#">Configurações</a>
+  </nav>
+
+  <header class="header">
+    <span class="menu-toggle" id="menu-toggle">&#9776;</span>
+    <div class="user-profile" id="user-profile">
+      <img src="https://i.pravatar.cc/150?img=12" alt="Foto do Aluno" />
+      <span>Maria Silva</span>
+
+      <div class="profile-dropdown" id="profile-dropdown">
+        <a href="#">Meu Perfil</a>
+        <a href="#">Configurações</a>
+        <a href="#">Sair</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <h1>Bem-vinda, Maria!</h1>
+    <p>Aqui está sua visão geral dos estudos.</p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Cursos Ativos</h3>
+        <p>5</p>
+      </div>
+      <div class="card">
+        <h3>Notas Recentes</h3>
+        <p>88%</p>
+      </div>
+      <div class="card">
+        <h3>....</h3>
+          <p>2</p>
+      </div>
+    </div>
+  </main>
+</div>
+<script src="js/dashboard.js"></script>
+</body>
+</html>

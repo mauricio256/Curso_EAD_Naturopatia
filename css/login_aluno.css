@@ -1,0 +1,112 @@
+ * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Lado esquerdo */
+    .left-side {
+      flex: 1;
+      background: url('/img/fundo.jpg') no-repeat center center;
+      background-size: cover;
+    }
+
+    /* Lado direito com o formulário */
+    .right-side {
+      flex: 1;
+      background-color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .form-box {
+      width: 100%;
+      max-width: 400px;
+    }
+    .form-box img.logo {
+      align-items: center;
+      display: block;
+      margin: 0 auto 1rem;
+      width: 100px; /* Ajuste o tamanho conforme necessário */
+      height: auto; /* Mantém a proporção da imagem */
+    }
+
+    .form-box h2{
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 2rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: #2e7d32;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+    }
+
+    input:focus {
+      border-color: #66bb6a;
+      background-color: #f1f8e9;
+    }
+
+    button {
+      width: 100%;
+      padding: 0.9rem;
+      background-color: #388e3c;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    button:hover {
+      background-color: #2e7d32;
+      transform: scale(1.03);
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .left-side {
+        display: none;
+      }
+
+      .right-side {
+        flex: none;
+        height: 100vh;
+        padding: 1.5rem;
+      }
+
+
+      .form-box {
+        max-width: 100%;
+      }
+    }
