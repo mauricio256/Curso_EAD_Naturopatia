@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avaliação - Curso de Naturopatia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f9f4;
+      padding: 20px;
+    }
+
+    .form-container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+    }
+
+    .pergunta {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"],
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background-color: #2e7d32;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .submit-btn:hover {
+      background-color: #256428;
+    }
+  </style>
+</head>
+<body>
+
+<div class="form-container">
+  <h2>Avaliação Final - Curso de Naturopatia Clínica</h2>
+  <form action="" method="post">
+    
+    <div class="pergunta">
+      <label for="nome">1. Nome completo:</label>
+      <input type="text" id="nome" name="nome" required>
+    </div>
+
+    <div class="pergunta">
+      <label for="email">2. E-mail:</label>
+      <input type="text" id="email" name="email" required>
+    </div>
+
+    <div class="pergunta">
+      <label>3. O que é Naturopatia?</label>
+      <input type="text" name="q3" required>
+    </div>
+
+    <div class="pergunta">
+      <label>4. Quais são os pilares da Naturopatia?</label>
+      <textarea name="q4" rows="3" required></textarea>
+    </div>
+
+    <div class="pergunta">
+      <label>5. Qual a importância da alimentação natural?</label>
+      <textarea name="q5" rows="3" required></textarea>
+    </div>
+
+    <div class="pergunta">
+      <label>6. Cite 2 práticas comuns em terapias naturais:</label>
+      <input type="text" name="q6" required>
+    </div>
+
+    <div class="pergunta">
+      <label>7. A fitoterapia é uma prática da Naturopatia? Explique:</label>
+      <textarea name="q7" rows="3" required></textarea>
+    </div>
+
+    <div class="pergunta">
+      <label>8. Você considera a Naturopatia eficaz para prevenção de doenças?</label>
+      <select name="q8" required>
+        <option value="">Selecione</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+        <option value="parcialmente">Parcialmente</option>
+      </select>
+    </div>
+
+    <div class="pergunta">
+      <label>9. Qual foi o conteúdo mais relevante do curso para você?</label>
+      <input type="text" name="q9" required>
+    </div>
+
+    <div class="pergunta">
+      <label>10. Deixe seu comentário ou sugestão:</label>
+      <textarea name="q10" rows="4"></textarea>
+    </div>
+
+    <button type="submit" class="submit-btn"><a href="../../dashboard.html">Enviar Avaliação</a></button>
+  </form>
+</div>
+
+</body>
+</html>
