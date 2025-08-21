@@ -1,7 +1,7 @@
 
     body {
       font-family: Arial, sans-serif;
-      padding: 30px;
+      padding: 10px;
       background-color: #f4f4f4;
     }
     .container {
@@ -24,7 +24,7 @@
     input[type="email"],
     input[type="date"],
     input[type="tel"],
-    textarea {
+    select{
       width: 100%;
       padding: 8px;
       margin-top: 5px;

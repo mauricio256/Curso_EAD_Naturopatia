@@ -17,7 +17,7 @@
     /* Lado esquerdo */
     .left-side {
       flex: 1;
-      background: url('/img/fundo.jpg') no-repeat center center;
+      background: url('../img/fundo.jpg') no-repeat center center;
       background-size: cover;
     }
 

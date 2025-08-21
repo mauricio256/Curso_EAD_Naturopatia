@@ -12,66 +12,70 @@
     <h3>CURSOS de ESPECIALIZAÇÃO e de FORMAÇÃO SUPERIOR</h3>
     <h3>FICHA de INSCRIÇÃO</h3>
 
-    <form>
-      <label for="curso">Desejo me inscrever nos cursos de:</label>
-      <textarea id="curso" rows="2"></textarea>
-
+    <form action="php/matricula.php" method="post">
+      <label for="curso">Desejo me inscrever no curso de:</label>
+      <select name="curso" id="curso" required>
+        <option value="">-- Selecione um curso --</option>
+        <option value="naturopatia">Curso Superior Sequencial em Naturopatia Clínica Científica</option>
+      </select>
       <label for="nome">Meu Nome:</label>
-      <input type="text" id="nome" required>
+      <input type="text" name="nome" id="nome" required>
 
       <label for="endereco">Endereço:</label>
-      <input type="text" id="endereco">
+      <input type="text" name="endereco" id="endereco">
 
       <div class="inline-group"> 
         <div>
           <label for="cidade">Cidade:</label>
-          <input type="text" id="cidade">
+          <input type="text" name="cidade" id="cidade">
         </div>
         <div>
           <label for="cep">CEP:</label>
-          <input type="text" id="cep">
+          <input type="text" name="CEP" id="cep">
         </div>
         <div>
           <label for="uf">UF:</label>
-          <input type="text" id="uf" maxlength="2">
+          <input type="text" name="UF" id="uf" maxlength="2">
         </div>
       </div>
 
       <div class="inline-group">
         <div>
           <label for="estado_civil">Estado Civil:</label>
-          <input type="text" id="estado_civil">
+          <input type="text" name="estadoCivil" id="estado_civil">
         </div>
         <div>
           <label for="atividade">Atividade:</label>
-          <input type="text" id="atividade">
+          <input type="text"  name="atividade" id="atividade">
         </div>
       </div>
 
       <div class="inline-group">
         <div>
           <label for="cpf">CPF:</label>
-          <input type="text" id="cpf">
+          <input type="text" name="CPF" id="cpf">
         </div>
         <div>
           <label for="crt">CRT:</label>
-          <input type="text" id="crt">
+          <input type="text" name="CRT" id="crt">
         </div>
       </div>
 
       <div class="inline-group">
         <div>
           <label for="data_nasc">Data de Nascimento:</label>
-          <input type="date" id="data_nasc">
+          <input type="date" name="nascimento" id="data_nasc">
         </div>
         <div>
           <label for="whatsapp">WhatsApp:</label>
-          <input type="tel" id="whatsapp">
+          <input type="tel" name="whatsapp" id="whatsapp">
         </div>
       </div>
 
       <label for="email">E-mail:</label>
-      <input type="email" id="email">
+      <input type="email"  name="email" placeholder="Este e-mail será usado para seu acesso" id="email">
+      <label for="password">Crie sua senha de acesso:</label>
+      <input type="password" name="password" id="password">
 
       <label>Escolaridade:</label>
       <div class="checkbox-group">
@@ -80,23 +84,7 @@
         <label><input type="radio" name="escolaridade" value="fundamental"> Ensino Fundamental</label>
       </div>
 
-      <p class="assinatura">
-        Solicitação:<br><br>
-        - Senhor Prof. Dr. Wilson Dias, solicito minha matrícula no curso acima, comprometendo-me a dedicar-me ao aprendizado.
-      </p>
-
-      <div class="inline-group">
-        <div>
-          <label for="data">Data:</label>
-          <input type="date" id="data">
-        </div>
-        <div>
-          <label for="assinatura">Assinatura do Solicitante do Curso:</label>
-          <input type="text" id="assinatura">
-        </div>
-      </div>
-
-      <button type="submit">Enviar Inscrição</button>
+      <button type="submit" name="submit">Enviar Inscrição</button>
     </form>
   </div>
 </body>
