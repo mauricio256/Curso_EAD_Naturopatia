@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagamento Aprovado</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+    }
+
+    .success-gif img {
+      width: 120px;
+      height: 120px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin: 15px 0 10px;
+      color: #333;
+    }
+
+    p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .btn-voltar {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #4CAF50;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+
+    .btn-voltar:hover {
+      background: #2e7d32;
+    }
+
+    .info {
+      margin-top: 15px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="success-gif">
+      <!-- Troque o link abaixo pelo seu GIF animado local -->
+      <div style="width:80px; height:80px; margin:auto;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4CAF50" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" stroke="#4CAF50" stroke-width="2"/>
+            <path d="M8 12l2 2 4-4" stroke="#4CAF50" stroke-width="2"/>
+      </svg>
+    </div>
+
+    </div>
+    <h1>Pagamento Aprovado!</h1>
+    <p>Obrigado, recebemos o seu pagamento com sucesso.  
+       Sua matrícula agora está confirmada. 🎓</p>
+
+    <a href="login_aluno.php" class="btn-voltar">Acessar Área do Aluno</a>
+
+    <div class="info">
+      <p>Qualquer dúvida, entre em contato com o suporte.</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -65,13 +65,16 @@ if($checaEmail->rowCount() > 0){
 }
 
 // Criptografa a senha
-$senhaHash = password_hash($password, PASSWORD_DEFAULT);
+///$senhaHash = password_hash($password, PASSWORD_DEFAULT);
 
-// Insere o usuário na tabela Usuario
-$sql = "INSERT INTO `Usuario` (`ID_Usuario`, `Email`, `Senha_Hash`, `Tipo`, `Data_Cadastro`) VALUES 
-        (NULL, '$email', '$senhaHash', 'Aluno', NOW())";
+
 
 try {
+
+    // Insere o usuário na tabela Usuario
+    $sql = "INSERT INTO `Usuario` (`ID_Usuario`, `Email`, `Senha_Hash`, `Tipo`, `Data_Cadastro`) VALUES 
+           (NULL, '$email', '$password', 'Aluno', NOW())";
+
     if($conn->exec($sql)):
 
         // Obtém o ID do usuário recém-criado
@@ -81,15 +84,24 @@ try {
         $sql = "INSERT INTO `Aluno` (`ID_Aluno`, `Nome`, `Data_Nascimento`, `Curso`, `Endereco`, `Cidade`, `CEP`, `UF`, `Estado_Civil`, `Atividade`, `CPF`, `CRT`, `WhatsApp`, `ID_Usuario`) VALUES 
                 (NULL, '$nome', '$nascimento', '$curso', '$endereco', '$cidade', '$CEP', '$UF', '$estadoCivil', '$atividade', '$CPF', '$CRT', '$whatsapp', '$idUsuario')";
         if($conn->exec($sql)):
+            
+            // Obtém o ID do aluno recém-criado
+            $idAluno = $conn->lastInsertId();
+
+            // Insere a matrícula na tabela Matricula com o curso escolhido
+            $sql = "INSERT INTO `Matricula` (`ID_Matricula`, `ID_Aluno`, `ID_Curso`, `Data_Matricula`,`Progresso`) VALUES 
+                    (NULL, '$idAluno', '$curso', NOW(), '0')";
+            $conn->exec($sql);
+
+            // Redireciona para a página de pagamento
             echo "<script>
-                    alert('USUÁRIO CADASTRADO COM SUCESSO!');
-                    javascript:window.location='../login_aluno.html';
+                    javascript:window.location='mercado_pago/pix_mercadopago.php?ID_Usuario=$idUsuario';
                   </script>";
             exit();
         else:
             // Se falhar ao inserir na tabela Aluno, remove o usuário criado na tabela Usuario
             $conn->exec("DELETE FROM Usuario WHERE ID_Usuario = '$idUsuario'");
-            echo "<script>
+            echo "<script> 
                     alert('ERRO AO CADASTRAR USUÁRIO, tente novamente.');
                     javascript:window.location='../matricula.html';
                   </script>";
