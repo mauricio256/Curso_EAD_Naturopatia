@@ -49,11 +49,12 @@
             <input name="password" type="password" id="senha" placeholder="Digite sua senha" required>
           </div>
             <div class="form-group"> <a href="#" class="forgot-password">Esqueci minha senha</a>
+            
           </div>
 
           <button name="submit" type="submit">Entrar</button>
           <div class="register-link"><br>
-            <p>Não tem uma conta? <a href="matricula.html">Inscreva-se</a></p>
+            <p>Não tem uma conta? <a href="matricula.html">Inscreva-se</a></p><br>
         </form>
       </div>
     </div>

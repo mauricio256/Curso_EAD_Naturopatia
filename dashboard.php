@@ -1,5 +1,6 @@
 <?php
   session_start();
+  include_once('php/conn.php');
 
   //// VERIFICA SE O USUÁRIO ESTÁ LOGADO
   if(!isset($_SESSION['Usuario'])) {
@@ -7,9 +8,7 @@
     exit();
   }
   
-  // CONEXÃO COM O BANCO DE DADOS
-  include_once('php/conn.php');
-
+  // PUXA O ID DO USUÁRIO LOGADO
   $ID_Usuario = $_SESSION['Usuario']['ID_Usuario'];
 
   //// PUXA OS DADOS DO ALUNO
