@@ -41,18 +41,17 @@
   <nav class="sidebar" id="sidebar">
     <img src="img/estudante.png" width="50px">
     <a href="dashboard.php">Início</a>
-    <a href="#">Meus Cursos</a>
     <a href="#">Meus Certificados</a>
     <a href="#">Minhas Notas</a>
     <a href="#">Novos Cursos</a>
     <a href="#">Configurações</a>
   </nav>
-
+  
   <header class="header">
     <span class="menu-toggle" id="menu-toggle">&#9776;</span>
     <div class="user-profile" id="user-profile">
-      <img src="https://i.pravatar.cc/150?img=12" alt="Foto do Aluno" />
-      <span><?php echo $aluno['Nome']; ?></span>
+      <img src="img/estudante.png" alt="Foto do Aluno" />
+      <span><?php echo strtoupper( $aluno['Nome']); ?></span>
       <div class="profile-dropdown" id="profile-dropdown">
         <a href="#">Meu Perfil</a>
         <a href="#">Comprovante de Matricula</a>
@@ -62,7 +61,8 @@
   </header>
 
   <main class="main">
-    <h1>Bem-vindo (a), <?php echo $aluno['Nome']; ?>!</h1>
+    
+    <h1>Bem-vindo (a), <?php echo strtoupper( $aluno['Nome']); ?>!</h1>
     <p>Aqui está sua visão geral dos estudos.</p>
 
     <div class="cards" >
@@ -85,10 +85,10 @@
       <?php foreach($cursos as $curso) { ?>
 
         <!-- Puxa o título do curso usado o ID que esta na variavel -> $curso['ID_Curso'] do foreach -->
-        <li> <a href="cursos/sala_aula.html"> <?php $sql_curso = "SELECT * FROM Curso WHERE ID_Curso = '".$curso['ID_Curso']."'";  $busca_cursos = $conn->prepare($sql_curso);$busca_cursos->execute();   $titulo_cursos = $busca_cursos->fetchAll(PDO::FETCH_ASSOC); 
+        <li><?php $sql_curso = "SELECT * FROM Curso WHERE ID_Curso = '".$curso['ID_Curso']."'";  $busca_cursos = $conn->prepare($sql_curso);$busca_cursos->execute();   $cursos = $busca_cursos->fetchAll(PDO::FETCH_ASSOC); 
           
           /// Mostra o título do curso para cada ID de curso rodado no foreach que o aluno está matriculado
-          echo $titulo_cursos[0]['Titulo']?> 
+          echo "<a href='cursos/sala_aula.php?ID_Curso=".$cursos[0]['ID_Curso']."'>".$cursos[0]['Titulo']."";?> 
           
         </a></li>
       <?php } ?>

@@ -25,22 +25,26 @@ echo $password;
     // VERIFICA SE O USUÁRIO EXISTE
     $count = $busca->rowCount();
     if($count > 0){     
-        //// puxa os dados do usuario e coloca na sessao 
+        //// puxa os dados do usuario e coloca na sessao usuario
         $_SESSION['Usuario'] = $busca->fetch(PDO::FETCH_ASSOC);
 
-         $ID_Usuario = $_SESSION['Usuario'];
+         $Usuario = $_SESSION['Usuario'];
 
             //vefirica se possui boleto pedente
-            $sql = "SELECT status FROM `Boleto` WHERE ID_Usuario = '".$ID_Usuario['ID_Usuario']."' ORDER BY data_criacao DESC LIMIT 1";
+            $sql = "SELECT status FROM `Boleto` WHERE ID_Usuario = '".$Usuario['ID_Usuario']."' ORDER BY data_criacao DESC LIMIT 1";
             $busca = $conn->prepare($sql);
             $busca->execute();
             $busca = $busca->fetchAll(PDO::FETCH_ASSOC);
 
                 if($busca[0]['status'] == 'pending'){
-                    header('Location:mercado_pago/pix_mercadopago.php?ID_Usuario='.$ID_Usuario['ID_Usuario'].'');
+                    header('Location:mercado_pago/pix_mercadopago.php?ID_Usuario='.$Usuario['ID_Usuario'].'');
                     unset($_SESSION['Usuario']);
                 }else if($busca[0]['status'] == 'approved'){
                     header('Location:../dashboard.php');
+                }else if($busca[0]['status'] == 'cancelled'){
+                    $conn->exec("DELETE FROM Boleto WHERE ID_Usuario = '".$Usuario['ID_Usuario']."'");
+                    header('Location:mercado_pago/pix_mercadopago.php?ID_Usuario='.$Usuario['ID_Usuario'].'');
+                    unset($_SESSION['Usuario']);
                 }else{
                    echo "
                             <div style=\"
@@ -59,7 +63,7 @@ echo $password;
                             gap: 10px;
                             \">
                             <span style='font-size:2.5rem;'>⚠️</span>
-                            <span>Erro!!! Entre em contato com o suporte.<br> Não foi possível identificar o status do boleto.</span><br>
+                            <span>Erro!!! Entre em contato com o suporte.<br> Não foi possível identificar o status do seu boleto.</span><br>
                             
                             <p><a  href='../login_aluno.php' style=\"
                                 display:block;

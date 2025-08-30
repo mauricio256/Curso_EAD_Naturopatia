@@ -1,3 +1,29 @@
+<?php
+  session_start();
+  include_once('php/conn.php');
+
+  //// VERIFICA SE O USUÁRIO ESTÁ LOGADO
+  if(!isset($_SESSION['Usuario'])) {
+    header('Location: ../login_aluno.php');
+    exit();
+  }
+
+  if(!isset($_GET['ID_Curso'])) {
+    echo"<script>
+    alert('Algo deu errado. ID do curso não identificado, Tente novamente!');
+      window.location.href = '../dashboard.php';
+    </script>";
+    exit();
+  }
+
+  $sql = "SELECT * FROM `Aula` WHERE ID_Curso = 4";
+  $busca = $conn->prepare($sql);
+  $busca->execute();
+  $aulas = $busca->fetchAll(PDO::FETCH_ASSOC);  
+
+  echo "<script>console.log('Aulas: ".json_encode($aulas)."');</script>";
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
