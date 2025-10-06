@@ -41,6 +41,7 @@
         <br>
         <form action="php/login.php" method="post">
           <div class="form-group">
+            <span>usuario para teste: mauricio256franca@gmail.com senha:123456</span><br><br>
             <label for="email">Usuário</label>
             <input name="email" type="email" id="email" placeholder="Digite seu e-mail" required>
           </div>
