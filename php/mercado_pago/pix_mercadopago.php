@@ -16,8 +16,8 @@ $ID_usuario = $_GET['ID_Usuario'];
 
 use MercadoPago\MercadoPagoConfig;
 use MercadoPago\Client\Payment\PaymentClient;
-
-MercadoPagoConfig::setAccessToken("APP_USR-847752454485401-082414-8a9d0b30f992f249ecc2b6a924f11efc-1353462493");
+////// AQUI VAI O ACCESS TOKEN DO Dr. Wilsson da conta do Mercado Pago
+MercadoPagoConfig::setAccessToken("APP_USR-847752454485401-082414-8a9d0b30f992f249ecc2b6a924f11efc-1353462493"); //// ACCESS TOKEN da minha conta teste temporaria
 
 $client = new PaymentClient();
 
@@ -36,7 +36,7 @@ if ($boletoExistente) {
 } else {
     // Cria o pagamento PIX
     $payment = $client->create([
-        "transaction_amount" => 0.10,
+        "transaction_amount" => 0.10, ///// valor para teste de R$0,10
         "description" => "Matrícula do Curso de Naturoterapia",
         "payment_method_id" => "pix",
         "payer" => [

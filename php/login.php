@@ -9,7 +9,7 @@ if(!isset($_POST["submit"])){
 }
 
 $email = $_POST['email'];
-$password = $_POST['password'];
+$password = $_POST['password']; /// falta criptografar a senha com md5 ou sha1
 
 /*
 echo $email;

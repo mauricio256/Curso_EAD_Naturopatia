@@ -5,8 +5,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
-        url('https://img.freepik.com/fotos-premium/fundo-natural-suave-com-folhas-verdes_882954-2392.jpg?w=1600');
+      background-color: #3a3737;
       background-size: cover;
       background-repeat: no-repeat;
       background-attachment: fixed;
@@ -58,47 +57,6 @@
       text-align: center;
     }
 
-    .comentarios {
-      margin-top: 1rem;
-    }
-
-    .lista-comentarios {
-      max-height: 200px;
-      overflow-y: auto;
-      background: #eee;
-      padding: 0.75rem;
-      border-radius: 6px;
-      font-size: 0.9rem;
-    }
-
-    .comentario-item {
-      margin-bottom: 0.75rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid #ccc;
-    }
-
-    .novo-comentario {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .novo-comentario input {
-      flex: 1;
-      padding: 0.5rem;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-
-    .novo-comentario button {
-      padding: 0.5rem 1rem;
-      background-color:#2e7d32;
-      border: none;
-      color: white;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
     .sidebar {
       position: fixed;
       top: 0;
@@ -109,7 +67,7 @@
       box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
       padding: 1rem;
       overflow-y: auto;
-      transition: right 0.3s ease;
+      transition: right .4s;
       z-index: 1000;
     }
 
@@ -159,7 +117,7 @@
       padding: 0.5rem;
       font-size: 0.9rem;
       cursor: pointer;
-    }
+    } 
 
     .botao-avaliacao {
       margin-top: 1rem;
@@ -170,9 +128,15 @@
       border: none;
       cursor: pointer;
       color: white;
-      background-color: gray;
+      background-color: rgba(128, 128, 128, 0.432);
       opacity: 0.6;
       pointer-events: none;
+      text-decoration: none;
+    } 
+    
+    #btnAvaliacao a{
+      text-decoration: none;
+      color:white
     }
 
     .botao-avaliacao.ativo {

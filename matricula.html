@@ -8,9 +8,12 @@
 </head>
 <body>
   <div class="container">
-    <h2>Associação Baiana de Medicina Natural e Preventiva (ABMNP)</h2>
-    <h3>CURSOS de ESPECIALIZAÇÃO e de FORMAÇÃO SUPERIOR</h3>
-    <h3>FICHA de INSCRIÇÃO</h3>
+    <h3>INSTITUTO DE CURSOS & TERAPIAS DR. WILSON DIAS</h3>
+    <div style="text-align: center; margin-bottom: 20px;">
+      <a target="_blank" href="pdf/CNPJ CONTRATO W.DIAS TREINAMENTO EM NATUROPATIA LTDA.pdf">Saiba mais</a>
+    </div>
+    <h4>CURSO DE FORMAÇÃO DE TERAPEUTA EM NATUROTERAPIA</h4>
+    <h4>INSCRIÇÃO</h4>
 
     <form action="php/matricula.php" method="post">
       <label for="curso">Desejo me inscrever no curso de:</label>
@@ -18,34 +21,34 @@
         <option value="">-- Selecione um curso --</option>
         <option value="4">Curso Superior Sequencial em Naturopatia Clínica Científica</option>
       </select>
-      <label for="nome">Meu Nome:</label>
+      <label for="nome">Nome Completo:</label>
       <input type="text" name="nome" id="nome" required>
-
-      <label for="endereco">Endereço:</label>
-      <input type="text" name="endereco" id="endereco">
-
-      <div class="inline-group"> 
-        <div>
-          <label for="cidade">Cidade:</label>
-          <input type="text" name="cidade" id="cidade">
-        </div>
-        <div>
+      <div>
           <label for="cep">CEP:</label>
           <input type="text" name="CEP" id="cep">
-        </div>
+      </div>
+      <div class="inline-group"> 
+        <label for="endereco">Endereço:</label>
+        <input type="text" disabled="true" name="endereco" id="endereco">
+
+        <label for="endereco">Número</label>
+        <input required type="text" name="numero" id="numero">
         <div>
           <label for="uf">UF:</label>
-          <input type="text" name="UF" id="uf" maxlength="2">
+          <input disabled="true" type="text" name="UF" id="uf" maxlength="2">
+        </div>
+        <div>
+          <label for="cidade">Cidade:</label>
+          <input type="text" disabled="true" name="cidade" id="cidade">
         </div>
       </div>
-
       <div class="inline-group">
         <div>
           <label for="estado_civil">Estado Civil:</label>
           <input type="text" name="estadoCivil" id="estado_civil">
         </div>
         <div>
-          <label for="atividade">Atividade:</label>
+          <label for="atividade">Atividade profissional:</label>
           <input type="text"  name="atividade" id="atividade">
         </div>
       </div>
@@ -54,38 +57,29 @@
         <div>
           <label for="cpf">CPF:</label>
           <input type="text" name="CPF" id="cpf">
+          
         </div>
         <div>
-          <label for="crt">CRT:</label>
-          <input type="text" name="CRT" id="crt">
+          <label for="data_nasc">Data de Nascimento:</label>
+          <input value="2000-01-01" type="date" name="nascimento" id="data_nasc">
         </div>
       </div>
 
       <div class="inline-group">
-        <div>
-          <label for="data_nasc">Data de Nascimento:</label>
-          <input type="date" name="nascimento" id="data_nasc">
-        </div>
+       
         <div>
           <label for="whatsapp">WhatsApp:</label>
-          <input type="tel" name="whatsapp" id="whatsapp">
+          <input required type="tel" name="whatsapp" id="whatsapp">
         </div>
       </div>
-
       <label for="email">E-mail:</label>
       <input type="email"  name="email" placeholder="Este e-mail será usado para seu acesso" id="email">
       <label for="password">Crie sua senha de acesso:</label>
       <input type="password" name="password" id="password">
 
-      <label>Escolaridade:</label>
-      <div class="checkbox-group">
-        <label><input type="radio" name="escolaridade" value="superior"> Curso Superior</label>
-        <label><input type="radio" name="escolaridade" value="medio"> Ensino Médio</label>
-        <label><input type="radio" name="escolaridade" value="fundamental"> Ensino Fundamental</label>
-      </div>
-
       <button type="submit" name="submit">Enviar Inscrição</button>
     </form>
   </div>
+  <script src="js/fomulario.js"></script>
 </body>
 </html>

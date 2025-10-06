@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include_once('php/conn.php');
+  include_once('../php/conn.php');
 
   //// VERIFICA SE O USUÁRIO ESTÁ LOGADO
   if(!isset($_SESSION['Usuario'])) {
@@ -8,6 +8,7 @@
     exit();
   }
 
+  // VERIFICA SE O ID_DO_CURSO FOI PASSADO PELO GET
   if(!isset($_GET['ID_Curso'])) {
     echo"<script>
     alert('Algo deu errado. ID do curso não identificado, Tente novamente!');
@@ -16,12 +17,22 @@
     exit();
   }
 
-  $sql = "SELECT * FROM `Aula` WHERE ID_Curso = 4";
+  // BUSCA AS AULAS DO CURSO
+  $sql = "SELECT * FROM `Aula` WHERE ID_Curso = '".$_GET['ID_Curso']."' ORDER BY Ordem ASC";
   $busca = $conn->prepare($sql);
   $busca->execute();
-  $aulas = $busca->fetchAll(PDO::FETCH_ASSOC);  
+  $aulas = $busca->fetchAll(PDO::FETCH_ASSOC); 
 
-  echo "<script>console.log('Aulas: ".json_encode($aulas)."');</script>";
+  // BUSCA O PROGRESSO DO ALUNO NO CURSO
+  $sql = "SELECT * FROM `Progresso` WHERE ID_Curso = ".$_GET['ID_Curso']." ";
+  $busca = $conn->prepare($sql);
+  $busca->execute();
+  $progesso = $busca->fetchAll(PDO::FETCH_ASSOC);
+
+  foreach($progesso as $p) {  
+    $p['ID_Aula'];
+  }
+    
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +45,7 @@
 </head>
 <body>
 
-  <button class="btn-toggle-sidebar" onclick="toggleSidebar()">Aulas</button>
+  <button id="btn-aulas" class="btn-toggle-sidebar" onclick="toggleSidebar()"><h4>Aulas</h4></button>
   
 
   <div class="sidebar" id="sidebar">
@@ -44,37 +55,24 @@
       <div class="progresso-barra" id="progresso-barra">0%</div>
     </div>
 
-    <label class="miniatura" data-video="https://www.youtube.com/embed/HYsAGQsn8Ds" data-aula="1" data-titulo="Aula 1 - Alimentação Natural">
-      <input type="checkbox" onclick="marcarAssistida(this, 'https://www.youtube.com/embed/HYsAGQsn8Ds', 1, 'Aula 1 - Alimentação Natural')" />
-      Aula 1 - Alimentação Natural
-    </label>
-    <label class="miniatura" data-video="https://www.youtube.com/embed/7L-fC1lu1zk" data-aula="2" data-titulo="Aula 2 - Terapias Integrativas">
-      <input type="checkbox" onclick="marcarAssistida(this, 'https://www.youtube.com/embed/7L-fC1lu1zk', 2, 'Aula 2 - Terapias Integrativas')" />
-      Aula 2 - Terapias Integrativas
-    </label>
-    <label class="miniatura" data-video="https://www.youtube.com/embed/zhuVszjkwnA" data-aula="3" data-titulo="Aula 3 - Fitoterapia Prática">
-      <input type="checkbox" onclick="marcarAssistida(this, 'https://www.youtube.com/embed/zhuVszjkwnA', 3, 'Aula 3 - Fitoterapia Prática')" />
-      Aula 3 - Fitoterapia Prática
-    </label>
+    <?php foreach($aulas as $aula) {   ?>
 
-    <button id="btnAvaliacao" class="botao-avaliacao"><a href="/cursos/avaliacoes/naturopatia_clinica.html">Fazer Avaliação</a></button>
+    <label class="miniatura" data-video="<?php echo $aula['URL_Video']; ?>" data-aula="1" data-titulo="<?php echo $aula['Titulo']; ?>">
+      <input type="checkbox" onclick="marcarAssistida(this, '<?php echo $aula['URL_Video']; ?>', <?php echo $aula['Ordem']; ?>, '<?php echo $aula['Titulo']; ?>')" />
+      <?php echo $aula['Titulo']; ?>
+    </label>
+  
+    <?php } ?>
+    <button id="btnAvaliacao" class="botao-avaliacao"><a href="avaliacoes/naturopatia_clinica.html">Fazer Avaliação</a></button>
   </div>
   <div class="container">
     <div class="video-section">
-      <br> <a href="/dashboard.html">Sair da sala de aula</a> <br><br>
       <div class="video-player">
         <iframe id="videoPrincipal" src="https://www.youtube.com/embed/HYsAGQsn8Ds" allowfullscreen></iframe>
       </div>
-      <div class="titulo-aula" id="tituloAula">Aula 1 - Alimentação Natural</div>
-
-      <div class="comentarios">
-        <h4>Comentários</h4>
-        <div class="lista-comentarios" id="listaComentarios"></div>
-        <div class="novo-comentario">
-          <input type="text" id="inputComentario" placeholder="Escreva seu comentário..." />
-          <button onclick="adicionarComentario()">Enviar</button>
-        </div>
-      </div>
+      <div class="titulo-aula" id="tituloAula">DR WILSON DIAS | INTRODUÇÃO À NATUROPATIA</div>
+       <p>Clique no botão "Aulas" acima, para começar</p>
+      <br> <button><a href="../dashboard.php"><h4>Sair da sala de aula</h4></a></button><br><br>
     </div>
   </div>
   
